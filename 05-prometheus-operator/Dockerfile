@@ -15,8 +15,6 @@ RUN git clone --branch ${VERSION} https://github.com/coreos/prometheus-operator
 WORKDIR $GOPATH/src/github.com/coreos/prometheus-operator
 
 RUN sed -i 's+./scripts/check_license.sh++g' Makefile \
-    && make /go/bin/controller-gen \
-    && ls -lah ${GOPATH}/bin \
     && make build
 
 FROM arm32v7/alpine:3.11.5

@@ -1,5 +1,5 @@
 DIR := ${CURDIR}
-DIRECTORY = $(notdir $(wildcard *))
+DIRECTORY = $(wildcard */)
 
 .PHONY: init
 init:
@@ -12,13 +12,17 @@ push: $(addsuffix -push,$($*DIRECTORY:/=))
 
 .PHONY: %-push
 %-push:
+ifneq ($(wildcard $*/.),0)
 	@echo "*Buiding and pushing $*"
 	@$(MAKE) -C $* push
+endif
 
 .PHONY: build
 build: $(addsuffix -build,$($*DIRECTORY:/=))
 
 .PHONY: %-build
 %-build:
+ifneq ($(wildcard $*/.),0)
 	@echo "*Building $*"
 	@$(MAKE) -C $* build
+endif
