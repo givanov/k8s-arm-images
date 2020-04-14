@@ -1,4 +1,6 @@
-FROM quay.io/ouzi/go-builder:1.14.0 as builder
+ARG GO_BUILDER_VERSION
+
+FROM quay.io/ouzi/go-builder:${GO_BUILDER_VERSION} as builder
 
 ARG VERSION
 
