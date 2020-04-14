@@ -1,12 +1,10 @@
-DOCKER_REPO := quay.io/givanov/prometheus-operator-armhf
+DOCKER_REPO := quay.io/givanov/prometheus-config-reloader-armhf
 VERSION := v0.38.0
-GO_BUILDER_VERSION := 1.14.2
 
 .PHONY: build
 build:
 	@docker build \
 	  --build-arg VERSION=$(VERSION) \
-	  --build-arg GO_BUILDER_VERSION=$(GO_BUILDER_VERSION) \
 	  -t $(DOCKER_REPO):$(VERSION) .
 
 .PHONY: push
