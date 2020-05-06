@@ -27,9 +27,9 @@ LABEL summary="prometheus operator image for ARM" \
 
 ARG VERSION
 
-COPY --from=builder /go/src/github.com/coreos/prometheus-operator/operator /usr/bin/operator
-COPY --from=builder /go/src/github.com/coreos/prometheus-operator/prometheus-config-reloader /usr/bin/prometheus-config-reloader
+COPY --from=builder /go/src/github.com/coreos/prometheus-operator/operator /bin/operator
+COPY --from=builder /go/src/github.com/coreos/prometheus-operator/prometheus-config-reloader /bin/prometheus-config-reloader
 
 USER nobody:nobody
 
-ENTRYPOINT ["/usr/bin/operator"]
+ENTRYPOINT ["/bin/operator"]

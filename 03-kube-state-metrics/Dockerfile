@@ -28,4 +28,6 @@ COPY --from=builder /go/src/github.com/kubernetes/kube-state-metrics/kube-state-
 
 USER nobody:nobody
 
-ENTRYPOINT ["/usr/bin/kube-state-metrics"]
+ENTRYPOINT ["/usr/bin/kube-state-metrics", "--port=8080", "--telemetry-port=8081"]
+
+EXPOSE 8080 8081

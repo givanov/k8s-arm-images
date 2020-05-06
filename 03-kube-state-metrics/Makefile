@@ -1,5 +1,5 @@
 DOCKER_REPO := quay.io/givanov/kube-state-metrics-armhf
-VERSION := v1.9.5
+VERSION := v1.9.4
 GO_BUILDER_VERSION := 1.14.2
 
 .PHONY: build
